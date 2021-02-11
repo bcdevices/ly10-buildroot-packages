@@ -1,13 +1,11 @@
+diff --git a/auto.def b/auto.def
+index fe6e4a2..389645f 100644
 --- a/jimtcl/auto.def
 +++ b/jimtcl/auto.def
-@@ -302,16 +302,8 @@ if {[opt-bool-or-full lineedit]} {
-         }
-     }
+@@ -306,12 +306,8 @@ if {[opt-bool references]} {
+     msg-result "Enabling references"
+     define JIM_REFERENCES
  }
--if {[opt-bool references]} {
--    msg-result "Enabling references"
--    define JIM_REFERENCES
--}
 -if {[opt-bool shared with-jim-shared]} {
 -    msg-result "Building shared library"
 -} else {

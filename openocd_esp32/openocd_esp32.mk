@@ -4,7 +4,7 @@
 #
 ################################################################################
 
-OPENOCD_ESP32_VERSION = v0.10.0-esp32-20180418
+OPENOCD_ESP32_VERSION = v0.10.0-esp32-20201202
 OPENOCD_ESP32_SOURCE = v$(OPENOCD_ESP32_VERSION).tar.gz
 OPENOCD_ESP32_SITE = git://github.com/espressif/openocd-esp32
 OPENOCD_ESP32_GIT_SUBMODULES = YES
