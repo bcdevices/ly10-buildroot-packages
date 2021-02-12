@@ -4,7 +4,7 @@
 #
 ################################################################################
 
-OPENOCD_CYPRESS_VERSION = release-v3.0.0
+OPENOCD_CYPRESS_VERSION = release-v4.1.0
 OPENOCD_CYPRESS_SITE = git://github.com/cypresssemiconductorco/openocd.git
 OPENOCD_CYPRESS_GIT_SUBMODULES = YES
 
@@ -24,6 +24,8 @@ OPENOCD_CYPRESS_CONF_OPTS += --with-jim-shared=no
 OPENOCD_CYPRESS_CONF_OPTS += --disable-shared
 OPENOCD_CYPRESS_CONF_OPTS += --enable-dummy
 OPENOCD_CYPRESS_CONF_OPTS += --disable-werror
+
+OPENOCD_CYPRESS_BIN_ARCH_EXCLUDE = usr/local/cypress/openocd/share/openocd/flm/cypress/traveo2 usr/local/cypress/openocd/share/openocd/flm/cypress/psoc6
 
 define OPENOCD_CYPRESS_BOOTSTRAP
 	rm -rf $(@D)/src/jtag/drivers/libjaylink
