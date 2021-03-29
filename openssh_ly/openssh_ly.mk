@@ -87,7 +87,7 @@ endif
 # The programs will be installed based on the config options selected.
 OPENSSH_LY_INSTALL_TARGET_OPTS = DESTDIR=$(TARGET_DIR) install-sysconf
 
-ifeq ($(BR2_PACKAGE_OPENSSH_LY_LY_CLIENT),y)
+ifeq ($(BR2_PACKAGE_OPENSSH_LY_CLIENT),y)
 define OPENSSH_LY_INSTALL_CLIENT_PROGRAMS
 	$(INSTALL) -D -m 0755 $(@D)/ssh $(TARGET_DIR)/usr/bin/ssh
 	$(INSTALL) -D -m 0755 $(@D)/scp $(TARGET_DIR)/usr/bin/scp
@@ -101,7 +101,7 @@ endef
 OPENSSH_LY_POST_INSTALL_TARGET_HOOKS += OPENSSH_LY_INSTALL_CLIENT_PROGRAMS
 endif
 
-ifeq ($(BR2_PACKAGE_OPENSSH_LY_LY_SERVER),y)
+ifeq ($(BR2_PACKAGE_OPENSSH_LY_SERVER),y)
 define OPENSSH_LY_INSTALL_SERVER_PROGRAMS
 	$(INSTALL) -D -m 0755 $(@D)/sshd $(TARGET_DIR)/usr/sbin/sshd
 	$(INSTALL) -D -m 0755 $(@D)/sftp-server $(TARGET_DIR)/usr/libexec/sftp-server
@@ -120,7 +120,7 @@ define OPENSSH_LY_INSTALL_INIT_SYSV
 endef
 endif
 
-ifeq ($(BR2_PACKAGE_OPENSSH_LY_LY_KEY_UTILS),y)
+ifeq ($(BR2_PACKAGE_OPENSSH_LY_KEY_UTILS),y)
 define OPENSSH_LY_INSTALL_KEY_UTILS
 	$(INSTALL) -D -m 0755 $(@D)/ssh-keygen $(TARGET_DIR)/usr/bin/ssh-keygen
 	$(INSTALL) -D -m 0755 $(@D)/ssh-keyscan $(TARGET_DIR)/usr/bin/ssh-keyscan
