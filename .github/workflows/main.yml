@@ -1,0 +1,19 @@
+name: A workflow for building buildroot package archive
+on: push
+
+jobs:
+  build:
+    name: Build buildroot package archive
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v1
+      - name: Build
+        run: make dist
+      - name: Upload archive
+        uses: svenstaro/upload-release-action@v2
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: dist/*
+          file_glob: true
+          tag: ${{ github.ref }}

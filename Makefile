@@ -9,9 +9,14 @@ versions:
 		@echo "GIT_DESC: $(GIT_DESC)"
 		@echo "VERSION_TAG: $(VERSION_TAG)"
 
+.PHONY: distclean
+distclean:
+	-rm -rf $(DIST)/*
+	-mkdir -p $(DIST)
+
 .PHONY: dist
 dist:
 	-mkdir -p $(DIST)
-	tar --exclude="./dist" --exclude="./.git" --xform s:'./':'package-$(VERSION_TAG)/': -czf $(DIST)/buildroot-packages-$(VERSION_TAG).tar.gz .
+	tar --exclude="./dist" --exclude="./.git" --exclude="./.github" --xform s:'./':'package-$(VERSION_TAG)/': -czf $(DIST)/buildroot-packages-$(VERSION_TAG).tar.gz .
 
 
