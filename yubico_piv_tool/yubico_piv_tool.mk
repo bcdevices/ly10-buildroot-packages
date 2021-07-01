@@ -19,4 +19,4 @@ YUBICO_PIV_TOOL_DEPENDENCIES = host-gengetopt
 YUBICO_PIV_TOOL_DEPENDENCIES += host-openssl
 YUBICO_PIV_TOOL_DEPENDENCIES += host-m4
 
-$(eval $(call CMAKETARGETS))
+$(eval $(cmake-package))
