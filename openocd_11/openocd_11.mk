@@ -4,16 +4,16 @@
 #
 ################################################################################
 
-OPENOCD_VERSION = 0.11.0
-OPENOCD_SOURCE = openocd-$(OPENOCD_VERSION).tar.bz2
-OPENOCD_SITE = http://sourceforge.net/projects/openocd/files/openocd/$(OPENOCD_VERSION)
-OPENOCD_LICENSE = GPL-2.0+
-OPENOCD_LICENSE_FILES = COPYING
+OPENOCD_11_VERSION = 0.11.0
+OPENOCD_11_SOURCE = openocd-$(OPENOCD_11_VERSION).tar.bz2
+OPENOCD_11_SITE = http://sourceforge.net/projects/openocd/files/openocd/$(OPENOCD_11_VERSION)
+OPENOCD_11_LICENSE = GPL-2.0+
+OPENOCD_11_LICENSE_FILES = COPYING
 # 0002-configure-enable-build-on-uclinux.patch patches configure.ac
-OPENOCD_AUTORECONF = YES
-OPENOCD_CONF_ENV = CFLAGS="$(TARGET_CFLAGS) -std=gnu99"
+OPENOCD_11_AUTORECONF = YES
+OPENOCD_11_CONF_ENV = CFLAGS="$(TARGET_CFLAGS) -std=gnu99"
 
-OPENOCD_CONF_OPTS = \
+OPENOCD_11_CONF_OPTS = \
 	--oldincludedir=$(STAGING_DIR)/usr/include \
 	--includedir=$(STAGING_DIR)/usr/include \
 	--disable-doxygen-html \
@@ -25,7 +25,7 @@ OPENOCD_CONF_OPTS = \
 # Rely on the Config.in options of each individual adapter selecting
 # the dependencies they need.
 
-OPENOCD_DEPENDENCIES = \
+OPENOCD_11_DEPENDENCIES = \
 	host-pkgconf \
 	jimtcl \
 	$(if $(BR2_PACKAGE_LIBFTDI1),libftdi1) \
@@ -36,7 +36,7 @@ OPENOCD_DEPENDENCIES = \
 	$(if $(BR2_PACKAGE_LIBGPIOD),libgpiod)
 
 # Adapters
-OPENOCD_CONF_OPTS += \
+OPENOCD_11_CONF_OPTS += \
 	$(if $(BR2_PACKAGE_OPENOCD_11_FTDI),--enable-ftdi,--disable-ftdi) \
 	$(if $(BR2_PACKAGE_OPENOCD_11_STLINK),--enable-stlink,--disable-stlink) \
 	$(if $(BR2_PACKAGE_OPENOCD_11_TI_ICDI),--enable-ti-icdi,--disable-ti-icdi) \
@@ -114,11 +114,11 @@ HOST_OPENOCD_11_DEPENDENCIES = host-jimtcl host-libftdi host-libusb host-libusb-
 # faking the date of the generated version.texi file, to make the
 # build system believe the documentation doesn't need to be
 # regenerated.
-define OPENOCD_FIX_VERSION_TEXI
+define OPENOCD_11_FIX_VERSION_TEXI
 	touch -r $(@D)/doc/openocd.info $(@D)/doc/version.texi
 endef
-OPENOCD_POST_BUILD_HOOKS += OPENOCD_FIX_VERSION_TEXI
-HOST_OPENOCD_11_POST_BUILD_HOOKS += OPENOCD_FIX_VERSION_TEXI
+OPENOCD_11_POST_BUILD_HOOKS += OPENOCD_11_FIX_VERSION_TEXI
+HOST_OPENOCD_11_POST_BUILD_HOOKS += OPENOCD_11_FIX_VERSION_TEXI
 
 define OPENOCD_11_TARGET_RENAME
 	mv $(TARGET_DIR)/usr/bin/openocd $(TARGET_DIR)/usr/bin/openocd_0.11.0
