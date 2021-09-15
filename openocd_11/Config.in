@@ -1,4 +1,4 @@
-config BR2_PACKAGE_OPENOCD
+config BR2_PACKAGE_OPENOCD_11
 	bool "openocd_11"
 	select BR2_PACKAGE_JIMTCL
 	help
@@ -6,7 +6,7 @@ config BR2_PACKAGE_OPENOCD
 
 	  http://openocd.sourceforge.net/
 
-if BR2_PACKAGE_OPENOCD
+if BR2_PACKAGE_OPENOCD_11
 
 comment "Adapters"
 
@@ -246,4 +246,4 @@ comment "xds110 adapter support needs toolchain w/ wchar"
 	depends on !BR2_USE_WCHAR
 	depends on BR2_TOOLCHAIN_HAS_THREADS && BR2_TOOLCHAIN_GCC_AT_LEAST_4_9
 
-endif # BR2_PACKAGE_OPENOCD
+endif # BR2_PACKAGE_OPENOCD_11
