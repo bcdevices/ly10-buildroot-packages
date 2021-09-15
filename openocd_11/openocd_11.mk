@@ -20,7 +20,8 @@ OPENOCD_11_CONF_OPTS = \
 	--disable-internal-jimtcl \
 	--disable-shared \
 	--enable-dummy \
-	--disable-werror
+	--disable-werror \
+	--prefix=/usr/local/openocd-0.11.0
 
 # Rely on the Config.in options of each individual adapter selecting
 # the dependencies they need.
