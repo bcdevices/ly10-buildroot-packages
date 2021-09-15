@@ -1,5 +1,5 @@
 config BR2_PACKAGE_OPENOCD
-	bool "openocd"
+	bool "openocd_11"
 	select BR2_PACKAGE_JIMTCL
 	help
 	  OpenOCD - Open On-Chip Debugger
