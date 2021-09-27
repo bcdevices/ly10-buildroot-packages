@@ -6,6 +6,7 @@
 
 OPENOCD_LY_VERSION = c3993d3188da5976a64f47d4cbf4d7e5b63f0c8d
 OPENOCD_LY_SITE = git://github.com/openocd-org/openocd
+OPENOCD_LY_GIT_SUBMODULES = YES
 OPENOCD_LY_LICENSE = GPL-2.0+
 OPENOCD_LY_LICENSE_FILES = COPYING
 # 0002-configure-enable-build-on-uclinux.patch patches configure.ac
