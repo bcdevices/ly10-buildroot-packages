@@ -1,14 +1,14 @@
-From 1c15bfd56a3c646837c0db34a116a898b7994c1f Mon Sep 17 00:00:00 2001
+From b06f4149ba9c2be9b9841c1cdf37b8ce057a5ac0 Mon Sep 17 00:00:00 2001
 From: Jeremy Wood <jeremy@bcdevices.com>
 Date: Wed, 22 Sep 2021 17:47:06 -0700
 Subject: [PATCH] Add atsame5 set-security command.
 
 ---
- src/flash/nor/atsame5.c | 36 ++++++++++++++++++++++++++++++++++++
- 1 file changed, 36 insertions(+)
+ src/flash/nor/atsame5.c | 37 +++++++++++++++++++++++++++++++++++++
+ 1 file changed, 37 insertions(+)
 
 diff --git a/src/flash/nor/atsame5.c b/src/flash/nor/atsame5.c
-index ed0bef463..49f1e4fa5 100644
+index ed0bef463..a30a464d0 100644
 --- a/src/flash/nor/atsame5.c
 +++ b/src/flash/nor/atsame5.c
 @@ -826,6 +826,33 @@ COMMAND_HANDLER(same5_handle_userpage_command)
@@ -45,13 +45,14 @@ index ed0bef463..49f1e4fa5 100644
  
  COMMAND_HANDLER(same5_handle_bootloader_command)
  {
-@@ -935,6 +962,15 @@ static const struct command_registration same5_exec_command_handlers[] = {
+@@ -935,6 +962,16 @@ static const struct command_registration same5_exec_command_handlers[] = {
  			"For security reasons the reserved-bits are masked out "
  			"in background and therefore cannot be changed.",
  	},
 +	{
 +		.name = "set-security",
 +		.handler = same5_handle_set_security_command,
++		.usage = "[enable]",
 +		.mode = COMMAND_EXEC,
 +		.help = "Secure the chip's Flash by setting the Security Bit."
 +			"This makes it impossible to read the Flash contents."
