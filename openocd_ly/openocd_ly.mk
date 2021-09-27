@@ -20,7 +20,7 @@ OPENOCD_LY_CONF_OPTS = \
 	--disable-shared \
 	--enable-dummy \
 	--disable-werror \
-	--prefix=/usr/local/openocd-0.11.0
+	--prefix=/usr/local/openocd-ly
 
 # Rely on the Config.in options of each individual adapter selecting
 # the dependencies they need.
@@ -121,7 +121,7 @@ OPENOCD_LY_POST_BUILD_HOOKS += OPENOCD_LY_FIX_VERSION_TEXI
 HOST_OPENOCD_LY_POST_BUILD_HOOKS += OPENOCD_LY_FIX_VERSION_TEXI
 
 define OPENOCD_LY_TARGET_RENAME
-	mv $(TARGET_DIR)/usr/bin/openocd $(TARGET_DIR)/usr/bin/openocd_0.11.0
+	mv $(TARGET_DIR)/usr/bin/openocd $(TARGET_DIR)/usr/bin/openocd_ly
 endef
 
 OPENOCD_LY_POST_INSTALL_TARGET_HOOKS += OPENOCD_LY_TARGET_RENAME
