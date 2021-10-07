@@ -17,7 +17,6 @@ OPENOCD_LY_CONF_OPTS = \
 	--oldincludedir=$(STAGING_DIR)/usr/include \
 	--includedir=$(STAGING_DIR)/usr/include \
 	--disable-doxygen-html \
-	--disable-internal-jimtcl \
 	--disable-shared \
 	--enable-dummy \
 	--disable-werror \
