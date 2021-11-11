@@ -14,6 +14,7 @@ OPENOCD_NRF9160_DEPENDENCIES += libftdi
 
 OPENOCD_NRF9160_CONF_OPTS += --prefix=/usr/local/nrf9160/openocd
 OPENOCD_NRF9160_CONF_OPTS += --enable-ftdi
+OPENOCD_NRF9160_CONF_OPTS += --enable-jlink
 OPENOCD_NRF9160_CONF_OPTS += --disable-doxygen-html
 OPENOCD_NRF9160_CONF_OPTS += --includedir=$(STAGING_DIR)/usr/include/libusb-1.0
 OPENOCD_NRF9160_CONF_OPTS += --with-jim-shared=no
