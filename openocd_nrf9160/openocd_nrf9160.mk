@@ -9,6 +9,7 @@ OPENOCD_NRF9160_SITE = git://github.com/linino/openocd-nrf9160
 OPENOCD_NRF9160_GIT_SUBMODULES = YES
 
 OPENOCD_NRF9160_AUTORECONF = YES
+OPENOCD_NRF9160_CONF_ENV = CFLAGS="$(TARGET_CFLAGS) -std=gnu99"
 OPENOCD_NRF9160_DEPENDENCIES = libusb-compat
 OPENOCD_NRF9160_DEPENDENCIES += libftdi
 
@@ -21,6 +22,7 @@ OPENOCD_NRF9160_CONF_OPTS += --with-jim-shared=no
 OPENOCD_NRF9160_CONF_OPTS += --disable-shared
 OPENOCD_NRF9160_CONF_OPTS += --enable-dummy
 OPENOCD_NRF9160_CONF_OPTS += --disable-werror
+OPENOCD_NRF9160_CONF_OPTS += --disable-internal-jimtcl 
 
 define OPENOCD_NRF9160_BOOTSTRAP
 	rm -rf $(@D)/src/jtag/drivers/libjaylink

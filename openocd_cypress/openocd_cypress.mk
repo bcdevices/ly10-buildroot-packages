@@ -9,6 +9,7 @@ OPENOCD_CYPRESS_SITE = git://github.com/cypresssemiconductorco/openocd.git
 OPENOCD_CYPRESS_GIT_SUBMODULES = YES
 
 OPENOCD_CYPRESS_AUTORECONF = YES
+OPENOCD_CYPRESS_CONF_ENV = CFLAGS="$(TARGET_CFLAGS) -std=gnu99"
 OPENOCD_CYPRESS_DEPENDENCIES = libusb-compat
 OPENOCD_CYPRESS_DEPENDENCIES += libftdi
 OPENOCD_CYPRESS_DEPENDENCIES += hidapi
@@ -24,6 +25,7 @@ OPENOCD_CYPRESS_CONF_OPTS += --with-jim-shared=no
 OPENOCD_CYPRESS_CONF_OPTS += --disable-shared
 OPENOCD_CYPRESS_CONF_OPTS += --enable-dummy
 OPENOCD_CYPRESS_CONF_OPTS += --disable-werror
+OPENOCD_CYPRESS_CONF_OPTS += --disable-internal-jimtcl 
 
 OPENOCD_CYPRESS_BIN_ARCH_EXCLUDE = usr/local/cypress/openocd/share/openocd/flm/cypress/traveo2 usr/local/cypress/openocd/share/openocd/flm/cypress/psoc6
 

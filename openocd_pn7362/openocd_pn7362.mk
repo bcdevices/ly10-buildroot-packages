@@ -9,6 +9,7 @@ OPENOCD_PN7362_SITE = git://github.com/bcdevices/openocd_pn7362
 OPENOCD_PN7362_GIT_SUBMODULES = YES
 
 OPENOCD_PN7362_AUTORECONF = YES
+OPENOCD_PN7362_CONF_ENV = CFLAGS="$(TARGET_CFLAGS) -std=gnu99"
 OPENOCD_PN7362_DEPENDENCIES = libusb-compat
 OPENOCD_PN7362_DEPENDENCIES += libftdi
 
@@ -20,6 +21,7 @@ OPENOCD_PN7362_CONF_OPTS += --with-jim-shared=no
 OPENOCD_PN7362_CONF_OPTS += --disable-shared
 OPENOCD_PN7362_CONF_OPTS += --enable-dummy
 OPENOCD_PN7362_CONF_OPTS += --disable-werror
+OPENOCD_PN7362_CONF_OPTS += --disable-internal-jimtcl 
 
 define OPENOCD_PN7362_BOOTSTRAP
 	rm -rf $(@D)/src/jtag/drivers/libjaylink

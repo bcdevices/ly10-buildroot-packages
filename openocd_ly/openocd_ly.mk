@@ -20,7 +20,8 @@ OPENOCD_LY_CONF_OPTS = \
 	--disable-shared \
 	--enable-dummy \
 	--disable-werror \
-	--prefix=/usr/local/openocd-ly
+	--prefix=/usr/local/openocd-ly \
+	--disable-internal-jimtcl
 
 # Rely on the Config.in options of each individual adapter selecting
 # the dependencies they need.
@@ -65,7 +66,9 @@ OPENOCD_LY_CONF_OPTS += \
 	$(if $(BR2_PACKAGE_OPENOCD_LY_PRESTO),--enable-presto,--disable-presto) \
 	$(if $(BR2_PACKAGE_OPENOCD_LY_OPENJTAG),--enable-openjtag,--disable-openjtag) \
 	$(if $(BR2_PACKAGE_OPENOCD_LY_BUSPIRATE),--enable-buspirate,--disable-buspirate) \
-	$(if $(BR2_PACKAGE_OPENOCD_LY_SYSFS),--enable-sysfsgpio,--disable-sysfsgpio)
+	$(if $(BR2_PACKAGE_OPENOCD_LY_SYSFS),--enable-sysfsgpio,--disable-sysfsgpio) \
+	--disable-internal-jimtcl 
+
 
 # Enable all configuration options for host build.
 #
