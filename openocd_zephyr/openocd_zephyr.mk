@@ -9,6 +9,7 @@ OPENOCD_ZEPHYR_SITE = git://github.com/zephyrproject-rtos/openocd.git
 OPENOCD_ZEPHYR_GIT_SUBMODULES = YES
 
 OPENOCD_ZEPHYR_AUTORECONF = YES
+OPENOCD_ZEPHYR_CONF_ENV = CFLAGS="$(TARGET_CFLAGS) -std=gnu99"
 OPENOCD_ZEPHYR_DEPENDENCIES = libusb-compat
 OPENOCD_ZEPHYR_DEPENDENCIES += libftdi
 OPENOCD_ZEPHYR_DEPENDENCIES += hidapi
@@ -24,6 +25,8 @@ OPENOCD_ZEPHYR_CONF_OPTS += --with-jim-shared=no
 OPENOCD_ZEPHYR_CONF_OPTS += --disable-shared
 OPENOCD_ZEPHYR_CONF_OPTS += --enable-dummy
 OPENOCD_ZEPHYR_CONF_OPTS += --disable-werror
+OPENOCD_ZEPHYR_CONF_OPTS += --disable-internal-jimtcl 
+
 
 define OPENOCD_ZEPHYR_BOOTSTRAP
 	rm -rf $(@D)/src/jtag/drivers/libjaylink
