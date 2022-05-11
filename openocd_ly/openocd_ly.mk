@@ -20,7 +20,8 @@ OPENOCD_LY_CONF_OPTS = \
 	--disable-shared \
 	--enable-dummy \
 	--disable-werror \
-	--prefix=/usr/local/openocd-ly
+	--prefix=/usr/local/openocd-ly \
+	--disable-internal-jimtcl
 
 # Rely on the Config.in options of each individual adapter selecting
 # the dependencies they need.
