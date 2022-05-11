@@ -66,7 +66,9 @@ OPENOCD_LY_CONF_OPTS += \
 	$(if $(BR2_PACKAGE_OPENOCD_LY_PRESTO),--enable-presto,--disable-presto) \
 	$(if $(BR2_PACKAGE_OPENOCD_LY_OPENJTAG),--enable-openjtag,--disable-openjtag) \
 	$(if $(BR2_PACKAGE_OPENOCD_LY_BUSPIRATE),--enable-buspirate,--disable-buspirate) \
-	$(if $(BR2_PACKAGE_OPENOCD_LY_SYSFS),--enable-sysfsgpio,--disable-sysfsgpio)
+	$(if $(BR2_PACKAGE_OPENOCD_LY_SYSFS),--enable-sysfsgpio,--disable-sysfsgpio) \
+	--disable-internal-jimtcl 
+
 
 # Enable all configuration options for host build.
 #
