@@ -25,6 +25,10 @@ OPENOCD_ESP32_CONF_OPTS += --enable-dummy
 OPENOCD_ESP32_CONF_OPTS += --disable-werror
 OPENOCD_ESP32_CONF_OPTS += --disable-internal-jimtcl 
 
+define OPENOCD_ESP32_BOOTSTRAP
+	rm -rf $(@D)/src/jtag/drivers/libjaylink
+	git -C $(@D)/src/jtag/drivers clone http://repo.or.cz/r/libjaylink.git
+endef
 
 define OPENOCD_ESP32_TARGET_RENAME
 	mv $(TARGET_DIR)/usr/bin/openocd $(TARGET_DIR)/usr/bin/openocd_zephyr
