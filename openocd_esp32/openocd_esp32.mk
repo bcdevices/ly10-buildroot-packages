@@ -14,16 +14,16 @@ OPENOCD_ESP32_CONF_ENV = CFLAGS="$(TARGET_CFLAGS) -std=gnu99"
 OPENOCD_ESP32_DEPENDENCIES = libusb-compat
 OPENOCD_ESP32_DEPENDENCIES += libftdi
 OPENOCD_ESP32_DEPENDENCIES += hidapi
+OPENOCD_ESP32_DEPENDENCIES += jimtcl
 
 OPENOCD_ESP32_CONF_OPTS += --prefix=/usr/local/esp/openocd
 OPENOCD_ESP32_CONF_OPTS += --enable-ftdi
 OPENOCD_ESP32_CONF_OPTS += --disable-doxygen-html
 OPENOCD_ESP32_CONF_OPTS += --includedir=$(STAGING_DIR)/usr/include/libusb-1.0
-OPENOCD_ESP32_CONF_OPTS += --with-jim-shared=no
-OPENOCD_ESP32_CONF_OPTS += --disable-shared
 OPENOCD_ESP32_CONF_OPTS += --enable-dummy
 OPENOCD_ESP32_CONF_OPTS += --disable-werror
 OPENOCD_ESP32_CONF_OPTS += --disable-internal-jimtcl 
+OPENOCD_ESP32_CONF_OPTS += --disable-shared
 
 define OPENOCD_ESP32_BOOTSTRAP
 	rm -rf $(@D)/src/jtag/drivers/libjaylink
@@ -31,7 +31,7 @@ define OPENOCD_ESP32_BOOTSTRAP
 endef
 
 define OPENOCD_ESP32_TARGET_RENAME
-	mv $(TARGET_DIR)/usr/bin/openocd $(TARGET_DIR)/usr/bin/openocd_zephyr
+	mv $(TARGET_DIR)/usr/bin/openocd $(TARGET_DIR)/usr/bin/openocd_esp32
 endef
 
 

@@ -12,12 +12,12 @@ OPENOCD_PN7362_AUTORECONF = YES
 OPENOCD_PN7362_CONF_ENV = CFLAGS="$(TARGET_CFLAGS) -std=gnu99"
 OPENOCD_PN7362_DEPENDENCIES = libusb-compat
 OPENOCD_PN7362_DEPENDENCIES += libftdi
+OPENOCD_PN7362_DEPENDENCIES += jimtcl
 
 OPENOCD_PN7362_CONF_OPTS += --prefix=/usr/local/pn7362/openocd
 OPENOCD_PN7362_CONF_OPTS += --enable-ftdi
 OPENOCD_PN7362_CONF_OPTS += --disable-doxygen-html
 OPENOCD_PN7362_CONF_OPTS += --includedir=$(STAGING_DIR)/usr/include/libusb-1.0
-OPENOCD_PN7362_CONF_OPTS += --with-jim-shared=no
 OPENOCD_PN7362_CONF_OPTS += --disable-shared
 OPENOCD_PN7362_CONF_OPTS += --enable-dummy
 OPENOCD_PN7362_CONF_OPTS += --disable-werror

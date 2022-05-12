@@ -4,7 +4,7 @@
 #
 ################################################################################
 
-OPENOCD_CYPRESS_VERSION = release-v4.1.0
+OPENOCD_CYPRESS_VERSION = release-v4.3.1
 OPENOCD_CYPRESS_SITE = git://github.com/cypresssemiconductorco/openocd.git
 OPENOCD_CYPRESS_GIT_SUBMODULES = YES
 
@@ -13,6 +13,7 @@ OPENOCD_CYPRESS_CONF_ENV = CFLAGS="$(TARGET_CFLAGS) -std=gnu99"
 OPENOCD_CYPRESS_DEPENDENCIES = libusb-compat
 OPENOCD_CYPRESS_DEPENDENCIES += libftdi
 OPENOCD_CYPRESS_DEPENDENCIES += hidapi
+OPENOCD_CYPRESS_DEPENDENCIES += jimtcl
 
 OPENOCD_CYPRESS_CONF_OPTS += --prefix=/usr/local/cypress/openocd
 OPENOCD_CYPRESS_CONF_OPTS += --enable-ftdi
@@ -21,11 +22,11 @@ OPENOCD_CYPRESS_CONF_OPTS += --enable-cmsis-dap
 OPENOCD_CYPRESS_CONF_OPTS += --enable-jlink
 OPENOCD_CYPRESS_CONF_OPTS += --enable-kitprog
 OPENOCD_CYPRESS_CONF_OPTS += --includedir=$(STAGING_DIR)/usr/include/libusb-1.0
-OPENOCD_CYPRESS_CONF_OPTS += --with-jim-shared=no
-OPENOCD_CYPRESS_CONF_OPTS += --disable-shared
 OPENOCD_CYPRESS_CONF_OPTS += --enable-dummy
 OPENOCD_CYPRESS_CONF_OPTS += --disable-werror
 OPENOCD_CYPRESS_CONF_OPTS += --disable-internal-jimtcl 
+OPENOCD_CYPRESS_CONF_OPTS += --disable-shared 
+
 
 OPENOCD_CYPRESS_BIN_ARCH_EXCLUDE = usr/local/cypress/openocd/share/openocd/flm/cypress/traveo2 usr/local/cypress/openocd/share/openocd/flm/cypress/psoc6
 
@@ -37,7 +38,6 @@ endef
 define OPENOCD_CYPRESS_TARGET_RENAME
 	mv $(TARGET_DIR)/usr/bin/openocd $(TARGET_DIR)/usr/bin/openocd_cypress
 endef
-
 
 OPENOCD_CYPRESS_PRE_PATCH_HOOKS += OPENOCD_CYPRESS_BOOTSTRAP
 OPENOCD_CYPRESS_POST_INSTALL_TARGET_HOOKS += OPENOCD_CYPRESS_TARGET_RENAME
