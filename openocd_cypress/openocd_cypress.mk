@@ -5,7 +5,7 @@
 ################################################################################
 
 OPENOCD_CYPRESS_VERSION = release-v4.3.1
-OPENOCD_CYPRESS_SITE = git://github.com/cypresssemiconductorco/openocd.git
+OPENOCD_CYPRESS_SITE = git://github.com/Infineon/openocd.git
 OPENOCD_CYPRESS_GIT_SUBMODULES = YES
 
 OPENOCD_CYPRESS_AUTORECONF = YES
