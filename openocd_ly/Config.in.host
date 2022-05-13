@@ -1,5 +1,5 @@
 config BR2_PACKAGE_HOST_OPENOCD_LY
-	bool "host openocd"
+	bool "host openocd_ly"
 	depends on BR2_HOST_GCC_AT_LEAST_4_9 # host-libusb
 	help
 	  OpenOCD - Open On-Chip Debugger

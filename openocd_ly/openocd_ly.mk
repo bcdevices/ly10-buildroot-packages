@@ -17,11 +17,11 @@ OPENOCD_LY_CONF_OPTS = \
 	--oldincludedir=$(STAGING_DIR)/usr/include \
 	--includedir=$(STAGING_DIR)/usr/include \
 	--disable-doxygen-html \
-	--enable-dummy \
 	--disable-internal-jimtcl \
 	--disable-shared \
+	--enable-dummy \
 	--disable-werror \
-	--prefix=/usr/local/openocd-ly 
+	--prefix=/usr/local/openocd-ly
 
 # Rely on the Config.in options of each individual adapter selecting
 # the dependencies they need.
@@ -66,8 +66,60 @@ OPENOCD_LY_CONF_OPTS += \
 	$(if $(BR2_PACKAGE_OPENOCD_LY_PRESTO),--enable-presto,--disable-presto) \
 	$(if $(BR2_PACKAGE_OPENOCD_LY_OPENJTAG),--enable-openjtag,--disable-openjtag) \
 	$(if $(BR2_PACKAGE_OPENOCD_LY_BUSPIRATE),--enable-buspirate,--disable-buspirate) \
-	$(if $(BR2_PACKAGE_OPENOCD_LY_SYSFS),--enable-sysfsgpio,--disable-sysfsgpio) \
-	--disable-internal-jimtcl 
+	$(if $(BR2_PACKAGE_OPENOCD_LY_SYSFS),--enable-sysfsgpio,--disable-sysfsgpio)
+
+# Enable all configuration options for host build.
+#
+# Note that deprecated options have been removed. CMSIS_DAP needs
+# hidapi (currently not included in buildroot) and zy1000 stuff fails
+# to build, so they've been removed too.
+#
+HOST_OPENOCD_LY_CONF_OPTS = \
+	--enable-ftdi \
+	--enable-stlink \
+	--enable-ti-icdi \
+	--enable-ulink \
+	--enable-usb-blaster-2 \
+	--enable-jlink \
+	--enable-osbdm \
+	--enable-opendous \
+	--enable-aice \
+	--enable-vsllink \
+	--enable-usbprog \
+	--enable-rlink \
+	--enable-armjtagew \
+	--enable-parport \
+	--enable-jtag_vpi \
+	--enable-usb-blaster \
+	--enable-amtjtagaccel \
+	--enable-gw16012 \
+	--enable-presto \
+	--enable-openjtag \
+	--enable-buspirate \
+	--enable-sysfsgpio \
+	--oldincludedir=$(HOST_DIR)/include \
+	--includedir=$(HOST_DIR)/include \
+	--disable-doxygen-html \
+	--disable-internal-jimtcl \
+	--disable-shared \
+	--enable-dummy \
+	--disable-werror
+
+HOST_OPENOCD_LY_DEPENDENCIES = host-jimtcl host-libftdi host-libusb host-libusb-compat
+
+# Avoid documentation rebuild. On PowerPC64(le), we patch the
+# configure script. Due to this, the version.texi files gets
+# regenerated, and then since it has a newer date than openocd.info,
+# openocd build system rebuilds the documentation. Unfortunately, this
+# documentation rebuild fails on old machines. We work around this by
+# faking the date of the generated version.texi file, to make the
+# build system believe the documentation doesn't need to be
+# regenerated.
+define OPENOCD_LY_FIX_VERSION_TEXI
+	touch -r $(@D)/doc/openocd.info $(@D)/doc/version.texi
+endef
+OPENOCD_LY_POST_BUILD_HOOKS += OPENOCD_LY_FIX_VERSION_TEXI
+HOST_OPENOCD_LY_POST_BUILD_HOOKS += OPENOCD_LY_FIX_VERSION_TEXI
 
 define OPENOCD_LY_TARGET_RENAME
 	mv $(TARGET_DIR)/usr/bin/openocd $(TARGET_DIR)/usr/bin/openocd_ly
@@ -76,3 +128,4 @@ endef
 OPENOCD_LY_POST_INSTALL_TARGET_HOOKS += OPENOCD_LY_TARGET_RENAME
 
 $(eval $(autotools-package))
+$(eval $(host-autotools-package))
