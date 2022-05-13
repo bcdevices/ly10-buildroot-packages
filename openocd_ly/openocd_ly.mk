@@ -19,6 +19,7 @@ OPENOCD_LY_CONF_OPTS = \
 	--disable-doxygen-html \
 	--enable-dummy \
 	--disable-internal-jimtcl \
+	--disable-shared \
 	--disable-werror \
 	--prefix=/usr/local/openocd-ly 
 
