@@ -4,7 +4,7 @@
 #
 ################################################################################
 
-OPENOCD_ESP32_VERSION = v0.10.0-esp32-20201202
+OPENOCD_ESP32_VERSION = v0.11.0-esp32-20220411 
 OPENOCD_ESP32_SOURCE = v$(OPENOCD_ESP32_VERSION).tar.gz
 OPENOCD_ESP32_SITE = git://github.com/espressif/openocd-esp32
 OPENOCD_ESP32_GIT_SUBMODULES = YES
@@ -22,8 +22,8 @@ OPENOCD_ESP32_CONF_OPTS += --disable-doxygen-html
 OPENOCD_ESP32_CONF_OPTS += --includedir=$(STAGING_DIR)/usr/include/libusb-1.0
 OPENOCD_ESP32_CONF_OPTS += --enable-dummy
 OPENOCD_ESP32_CONF_OPTS += --disable-werror
-OPENOCD_ESP32_CONF_OPTS += --disable-internal-jimtcl 
 OPENOCD_ESP32_CONF_OPTS += --disable-shared
+OPENOCD_ESP32_CONF_OPTS += --disable-internal-jimtcl 
 
 define OPENOCD_ESP32_BOOTSTRAP
 	rm -rf $(@D)/src/jtag/drivers/libjaylink
