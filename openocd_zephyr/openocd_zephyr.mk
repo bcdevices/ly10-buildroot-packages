@@ -4,7 +4,7 @@
 #
 ################################################################################
 
-OPENOCD_ZEPHYR_VERSION = a0e8edc4e70b2bc35de57f44717a289d9e651f6f
+OPENOCD_ZEPHYR_VERSION = v0.11.0 
 OPENOCD_ZEPHYR_SITE = git://github.com/zephyrproject-rtos/openocd.git
 OPENOCD_ZEPHYR_GIT_SUBMODULES = YES
 
