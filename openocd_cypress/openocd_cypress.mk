@@ -28,7 +28,7 @@ OPENOCD_CYPRESS_CONF_OPTS += --disable-internal-jimtcl
 OPENOCD_CYPRESS_CONF_OPTS += --disable-shared 
 
 
-OPENOCD_CYPRESS_BIN_ARCH_EXCLUDE = usr/local/cypress/openocd/share/openocd/flm/cypress/traveo2 usr/local/cypress/openocd/share/openocd/flm/cypress/psoc6
+OPENOCD_CYPRESS_BIN_ARCH_EXCLUDE = usr/local/cypress/openocd/share/openocd/flm/cypress/
 
 define OPENOCD_CYPRESS_BOOTSTRAP
 	rm -rf $(@D)/src/jtag/drivers/libjaylink
