@@ -40,21 +40,6 @@ OPENOCD_CYPRESS_CONF_OPTS = \
 	--enable-cmsis-dap 
 
 
-# Avoid documentation rebuild. On PowerPC64(le), we patch the
-# configure script. Due to this, the version.texi files gets
-# regenerated, and then since it has a newer date than openocd.info,
-# openocd build system rebuilds the documentation. Unfortunately, this
-# documentation rebuild fails on old machines. We work around this by
-# faking the date of the generated version.texi file, to make the
-# build system believe the documentation doesn't need to be
-# regenerated.
-define OPENOCD_CYPRESS_FIX_VERSION_TEXI
-	touch -r $(@D)/doc/openocd.info $(@D)/doc/version.texi
-endef
-
-OPENOCD_CYPRESS_POST_BUILD_HOOKS += OPENOCD_CYPRESS_FIX_VERSION_TEXI
-HOST_OPENOCD_CYPRESS_POST_BUILD_HOOKS += OPENOCD_CYPRESS_FIX_VERSION_TEXI
-
 define OPENOCD_CYPRESS_TARGET_RENAME
 	mv $(TARGET_DIR)/usr/bin/openocd $(TARGET_DIR)/usr/bin/openocd_cypress
 endef
