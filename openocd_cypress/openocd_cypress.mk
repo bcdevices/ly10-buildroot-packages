@@ -17,12 +17,12 @@ OPENOCD_CYPRESS_CONF_ENV = CFLAGS="$(TARGET_CFLAGS) -std=gnu99"
 OPENOCD_CYPRESS_DEPENDENCIES = \
 	host-pkgconf \
 	jimtcl \
-	libftdi1 \
-	libusb \
-	libusb-compat \
-	libhid \
-	hidapi \
-	libgpiod
+	$(if $(BR2_PACKAGE_LIBFTDI1),libftdi1) \
+	$(if $(BR2_PACKAGE_LIBUSB),libusb) \
+	$(if $(BR2_PACKAGE_LIBUSB_COMPAT),libusb-compat) \
+	$(if $(BR2_PACKAGE_LIBHID),libhid) \
+	$(if $(BR2_PACKAGE_HIDAPI),hidapi) \
+	$(if $(BR2_PACKAGE_LIBGPIOD),libgpiod)
 
 # Adapters
 OPENOCD_CYPRESS_CONF_OPTS = \
