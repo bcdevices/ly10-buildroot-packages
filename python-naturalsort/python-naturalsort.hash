@@ -1,0 +1,5 @@
+# md5, sha256 from https://pypi.org/pypi/naturalsort/json
+md5  a7b7dcd79686ae1e5de24ec104bf7a2b  naturalsort-1.5.1.tar.gz
+sha256  172b5ed6e7ba3420c08ba2ded1c52fe74878f5d769dc5d9dec2b6a53e7117356  naturalsort-1.5.1.tar.gz
+# Locally computed sha256 checksums
+sha256  193d7838bb7469a38a62e8178323f67a08bd62e8e93ec72b6be42ab4a13a8410  LICENSE.txt
