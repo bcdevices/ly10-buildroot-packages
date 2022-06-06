@@ -1,0 +1,6 @@
+# md5, sha256 from https://pypi.org/pypi/capstone/json
+md5  96215136924b612ddd4e05742c02cbff  capstone-4.0.2.tar.gz
+sha256  2842913092c9b69fd903744bc1b87488e1451625460baac173056e1808ec1c66  capstone-4.0.2.tar.gz
+# Locally computed sha256 checksums
+sha256  65e9ed46a59976eda8f5bd1ea79a680dea38dd299c760bc9a8d87a764ef5029b  LICENSE.TXT
+sha256  65e9ed46a59976eda8f5bd1ea79a680dea38dd299c760bc9a8d87a764ef5029b  src/LICENSE.TXT
