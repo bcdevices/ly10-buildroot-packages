@@ -1,0 +1,13 @@
+diff --git a/setup.cfg b/setup.cfg
+index 6a2a522..6cfe4e6 100644
+--- a/setup.cfg
++++ b/setup.cfg
+@@ -36,7 +36,7 @@ project_urls =
+ packages = find:
+ install_requires = 
+ 	appdirs>=1.4,<2.0
+-	milksnake>=0.1.5,<1.0
++#	milksnake>=0.1.5,<1.0
+ 	pyyaml>=6.0,<7.0
+ python_requires = >=3.6
+ include_package_data = True
