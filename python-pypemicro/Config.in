@@ -1,0 +1,4 @@
+config BR2_PACKAGE_PYTHON_PYPEMICRO
+	bool "python-pypemicro"
+	help
+   	Python tool to control PEMicro Debug probes

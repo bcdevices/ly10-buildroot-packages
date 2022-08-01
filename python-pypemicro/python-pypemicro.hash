@@ -1,0 +1,4 @@
+# sha256 from https://pypi.org/pypi/pyocd/0.32.3/json
+sha256  1e8b83065a9fa242a16dd5960c27da509aea2040b97feb129d59acad1b1e1665  pypemicro-0.1.9.tar.gz
+# Locally computed sha256 checksums
+sha256  d57898ef19d4bed5b5007ac68f9f716fbae5c0f85a849bf3ff641e3f9cb5c80f  LICENSE
