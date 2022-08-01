@@ -1,0 +1,4 @@
+config BR2_PACKAGE_PYTHON-CMSIS-PACK-MANAGER
+	bool "python-cmsis-pack-manager"
+	help
+  	Python manager for CMSIS-Pack index and cache with fast Rust backend
