@@ -1,0 +1,4 @@
+config BR2_PACKAGE_PYTHON_PYOCD_PEMICRO
+	bool "python-pyocd-pemicro"
+	help
+		PyOCD debug probe plugin for PEMicro debug probes
