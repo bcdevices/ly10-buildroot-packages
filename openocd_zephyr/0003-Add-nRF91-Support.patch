@@ -1,45 +1,43 @@
-From 3faf5fee4140359429e3c398c0d368d10e043936 Mon Sep 17 00:00:00 2001
+From 85f9968cddd240987b5d3436cdd67f345ee142cb Mon Sep 17 00:00:00 2001
 From: Jeremy Wood <jeremy@bcdevices.com>
-Date: Wed, 21 Sep 2022 10:40:08 -0700
+Date: Mon, 26 Sep 2022 14:17:11 -0700
 Subject: [PATCH] Add nRF91 Support
 
 ---
  src/flash/nor/Makefile.am |   1 +
  src/flash/nor/drivers.c   |   2 +
- src/flash/nor/nrf91.c     | 558 ++++++++++++++++++++++++++++++++++++++
- src/flash/nor/nrf91.cfg   |  44 +++
+ src/flash/nor/nrf91.c     | 559 ++++++++++++++++++++++++++++++++++++++
  tcl/target/nrf91.cfg      |  44 +++
- 5 files changed, 649 insertions(+)
+ 4 files changed, 606 insertions(+)
  create mode 100644 src/flash/nor/nrf91.c
- create mode 100644 src/flash/nor/nrf91.cfg
  create mode 100644 tcl/target/nrf91.cfg
 
 diff --git a/src/flash/nor/Makefile.am b/src/flash/nor/Makefile.am
-index d52379f68..7d33c7c56 100644
+index f04f0d206..499e445fc 100644
 --- a/src/flash/nor/Makefile.am
 +++ b/src/flash/nor/Makefile.am
-@@ -46,6 +46,7 @@ NOR_DRIVERS = \
- 	%D%/niietcm4.c \
+@@ -48,6 +48,7 @@ NOR_DRIVERS = \
  	%D%/non_cfi.c \
+ 	%D%/npcx.c \
  	%D%/nrf5.c \
 +	%D%/nrf91.c \
  	%D%/numicro.c \
  	%D%/ocl.c \
  	%D%/pic32mx.c \
 diff --git a/src/flash/nor/drivers.c b/src/flash/nor/drivers.c
-index 39fbe32cf..0167f7260 100644
+index b9353d820..7410e6c60 100644
 --- a/src/flash/nor/drivers.c
 +++ b/src/flash/nor/drivers.c
-@@ -59,6 +59,7 @@ extern const struct flash_driver msp432_flash;
- extern const struct flash_driver niietcm4_flash;
+@@ -48,6 +48,7 @@ extern const struct flash_driver niietcm4_flash;
+ extern const struct flash_driver npcx_flash;
  extern const struct flash_driver nrf5_flash;
  extern const struct flash_driver nrf51_flash;
 +extern const struct flash_driver nrf91_flash;
  extern const struct flash_driver numicro_flash;
  extern const struct flash_driver ocl_flash;
  extern const struct flash_driver pic32mx_flash;
-@@ -134,6 +135,7 @@ static const struct flash_driver * const flash_drivers[] = {
- 	&niietcm4_flash,
+@@ -124,6 +125,7 @@ static const struct flash_driver * const flash_drivers[] = {
+ 	&npcx_flash,
  	&nrf5_flash,
  	&nrf51_flash,
 +	&nrf91_flash,
@@ -48,10 +46,10 @@ index 39fbe32cf..0167f7260 100644
  	&pic32mx_flash,
 diff --git a/src/flash/nor/nrf91.c b/src/flash/nor/nrf91.c
 new file mode 100644
-index 000000000..3ea5349d2
+index 000000000..603b1c877
 --- /dev/null
 +++ b/src/flash/nor/nrf91.c
-@@ -0,0 +1,558 @@
+@@ -0,0 +1,559 @@
 +// SPDX-License-Identifier: GPL-2.0-or-later
 +
 +/***************************************************************************
@@ -565,32 +563,33 @@ index 000000000..3ea5349d2
 +	}
 +
 +	res = nrf91_erase_all(chip);
-+	if (res != ERROR_OK) {
++	if (res == ERROR_OK) {
++		LOG_INFO("Mass erase completed.");
++	} else {
 +		LOG_ERROR("Failed to erase the chip");
-+		nrf91_protect_check(bank);
-+		return res;
 +	}
-+
-+	res = nrf91_protect_check(bank);
-+	if (res != ERROR_OK) {
-+		LOG_ERROR("Failed to check chip's write protection");
-+		return res;
-+	}
-+
-+	res = get_flash_bank_by_addr(target, NRF91_UICR_BASE, true, &bank);
-+	if (res != ERROR_OK)
-+		return res;
 +
 +	return ERROR_OK;
 +}
 +
-+static const struct command_registration nrf91_command_handlers[] = {
++static const struct command_registration nrf91_exec_command_handlers[] = {
 +	{
 +		.name		= "mass_erase",
 +		.handler	= nrf91_handle_mass_erase_command,
 +		.mode		= COMMAND_EXEC,
 +		.help		= "Erase all flash contents of the chip.",
 +		.usage		= "",
++	},
++	COMMAND_REGISTRATION_DONE
++};
++
++static const struct command_registration nrf91_command_handlers[] = {
++	{
++		.name	= "nrf91",
++		.mode	= COMMAND_ANY,
++		.help	= "nrf91 flash command group",
++		.usage	= "",
++		.chain	= nrf91_exec_command_handlers,
 +	},
 +	COMMAND_REGISTRATION_DONE
 +};
@@ -610,59 +609,9 @@ index 000000000..3ea5349d2
 +	.protect_check		= nrf91_protect_check,
 +	.free_driver_priv	= nrf91_free_driver_priv,
 +};
-diff --git a/src/flash/nor/nrf91.cfg b/src/flash/nor/nrf91.cfg
-new file mode 100644
-index 000000000..b1cd19e5f
---- /dev/null
-+++ b/src/flash/nor/nrf91.cfg
-@@ -0,0 +1,44 @@
-+# SPDX-License-Identifier: GPL-2.0-or-later
-+
-+#
-+# Nordic nRF9160 series: ARM Cortex-M33
-+#
-+
-+source [find target/swj-dp.tcl]
-+
-+if { [info exists CHIPNAME] } {
-+	set _CHIPNAME $CHIPNAME
-+} else {
-+	set _CHIPNAME nrf9160
-+}
-+
-+# Work-area is a space in RAM used for flash programming
-+# By default use 16kB
-+if { [info exists WORKAREASIZE] } {
-+   set _WORKAREASIZE $WORKAREASIZE
-+} else {
-+   set _WORKAREASIZE 0x4000
-+}
-+
-+if { [info exists CPUTAPID] } {
-+	set _CPUTAPID $CPUTAPID
-+} else {
-+	set _CPUTAPID 0x6ba02477
-+}
-+
-+swj_newdap $_CHIPNAME cpu -expected-id $_CPUTAPID
-+dap create $_CHIPNAME.dap -chain-position $_CHIPNAME.cpu
-+
-+set _TARGETNAME $_CHIPNAME.cpu
-+target create $_TARGETNAME cortex_m -dap $_CHIPNAME.dap
-+
-+adapter speed 1000
-+
-+$_TARGETNAME configure -work-area-phys 0x20000000 -work-area-size $_WORKAREASIZE -work-area-backup 0
-+
-+if { ![using_hla] } {
-+	cortex_m reset_config sysresetreq
-+}
-+
-+flash bank $_CHIPNAME.flash nrf91 0x00000000 0 1 1 $_TARGETNAME
-+flash bank $_CHIPNAME.uicr nrf91 0xff8000 0 1 1 $_TARGETNAME
 diff --git a/tcl/target/nrf91.cfg b/tcl/target/nrf91.cfg
 new file mode 100644
-index 000000000..b1cd19e5f
+index 000000000..481c4fb4c
 --- /dev/null
 +++ b/tcl/target/nrf91.cfg
 @@ -0,0 +1,44 @@
@@ -711,5 +660,5 @@ index 000000000..b1cd19e5f
 +flash bank $_CHIPNAME.flash nrf91 0x00000000 0 1 1 $_TARGETNAME
 +flash bank $_CHIPNAME.uicr nrf91 0xff8000 0 1 1 $_TARGETNAME
 -- 
-2.24.3 (Apple Git-128)
+2.25.1
 
