@@ -3,13 +3,12 @@
 # openocd-cypress
 #
 ################################################################################
-OPENOCD_CYPRESS_VERSION = release-v4.1.0
+OPENOCD_CYPRESS_VERSION = release-v4.4.0
 OPENOCD_CYPRESS_SITE = git://github.com/cypresssemiconductorco/openocd.git
 OPENOCD_CYPRESS_GIT_SUBMODULES = YES
 
 OPENOCD_CYPRESS_LICENSE = GPL-2.0+
 OPENOCD_CYPRESS_LICENSE_FILES = COPYING
-# 0002-configure-enable-build-on-uclinux.patch patches configure.ac
 OPENOCD_CYPRESS_AUTORECONF = YES
 OPENOCD_CYPRESS_CONF_ENV = CFLAGS="$(TARGET_CFLAGS) -std=gnu99"
 
@@ -35,7 +34,7 @@ OPENOCD_CYPRESS_CONF_OPTS = \
 	--prefix=/usr/local/cypress/openocd \
 	--enable-ftdi \
 	--enable-jlink \
-  --enable-kitprog \
+	--enable-kitprog \
 	--enable-cmsis-dap 
 
 
