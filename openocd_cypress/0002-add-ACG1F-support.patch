@@ -1,0 +1,12 @@
+diff --git forkSrcPrefix/src/flash/nor/psoc4.c forkDstPrefix/src/flash/nor/psoc4.c
+index 8f05a9ee6b251a3c0150d1e0e58f664d57f53e67..297270656a888c497634589b7a1f8a86def4a9d4 100644
+--- forkSrcPrefix/src/flash/nor/psoc4.c
++++ forkDstPrefix/src/flash/nor/psoc4.c
+@@ -272,6 +272,7 @@ const struct psoc4_chip_family psoc4_families[] = {
+ 	{ 0xBA, {0x2A20, 0x2AFF}, "PMG1-S1",                              .flags = PSOC4_FLAG_NO_USER_SFLASH, .spcif_ver = spcif_v3 },
+ 	{ 0xBA, {0x2A00, 0x2A1F}, "CCG6",                                 .flags = PSOC4_FLAG_NO_USER_SFLASH, .spcif_ver = spcif_v3 },
+ 	{ 0xBE, {0, 0},           "PSoC 4100S Max",                       .flags = 0, .spcif_ver = spcif_v3 },
++	{ 0xBF, {0, 0},           "ACG1F",                                .flags = PSOC4_FLAG_NO_USER_SFLASH, .spcif_ver = spcif_v3 },
+ 	{ 0xC0, {0, 0},           "CCG6DF",                               .flags = PSOC4_FLAG_NO_USER_SFLASH, .spcif_ver = spcif_v3 },
+ 	{ 0xC1, {0x3100, 0x317F}, "CCG7D",                                .flags = PSOC4_FLAG_NO_USER_SFLASH, .spcif_ver = spcif_v3 }, /* SJZ-733 */
+ 	{ 0xC1, {0x3180, 0x31FF}, "WLC1",                                 .flags = PSOC4_FLAG_NO_USER_SFLASH, .spcif_ver = spcif_v3 }, /* SJZ-733 */
