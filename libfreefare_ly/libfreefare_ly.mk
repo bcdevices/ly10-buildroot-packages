@@ -3,7 +3,7 @@
 # libfreefare-ly
 #
 ################################################################################
-LIBFREEFARE_LY_VERSION = 5459806659d5f6aa0e7705b88c48775ea6c861a6
+LIBFREEFARE_LY_VERSION = c2b0cfa4b9fb0e4be88604f00b7a2405618d5abc
 LIBFREEFARE_LY_SITE = git://github.com/nfc-tools/libfreefare
 
 LIBFREEFARE_LY_DEPENDENCIES = libnfc_ly openssl

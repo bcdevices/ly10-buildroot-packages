@@ -1,0 +1,14 @@
+config BR2_PACKAGE_ACSCCID_LY
+	bool "acsccid_ly"
+	depends on BR2_TOOLCHAIN_HAS_THREADS # libusb
+	select BR2_PACKAGE_FLEX
+	select BR2_PACKAGE_LIBUSB
+	select BR2_PACKAGE_LIBUSB_COMPAT
+	select BR2_PACKAGE_PCSC_LITE
+	help
+	  ACS CCID PC/SC Driver for Linux/Mac OS X
+
+	  https://github.com/acshk/acsccid
+
+comment "acsccid needs a toolchain w/ threads"
+	depends on !BR2_TOOLCHAIN_HAS_THREADS
