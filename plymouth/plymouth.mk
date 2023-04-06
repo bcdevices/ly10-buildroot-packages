@@ -19,7 +19,7 @@ PLYMOUTH_SITE_METHOD = git
 PLYMOUTH_LICENSE = GPL-2.0-or-later
 PLYMOUTH_LICENSE_FILES = COPYING
 PLYMOUTH_AUTORECONF = YES
-PLYMOUTH_DEPENDENCIES = host-pkgconfig
+PLYMOUTH_DEPENDENCIES = host-pkgconf
 PLYMOUTH_DEPENDENCIES += host-gdk-pixbuf
 
 PLYMOUTH_CONF_OPTS += --enable-drm
@@ -41,3 +41,4 @@ define PLYMOUTH_INSTALL_IMAGE
 endef
 
 $(eval $(autotools-package))
+$(eval $(host-autotools-package))
