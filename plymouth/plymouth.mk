@@ -18,17 +18,16 @@ PLYMOUTH_LICENSE_FILES = COPYING
 PLYMOUTH_DEPENDENCIES = host-pkgconf
 PLYMOUTH_DEPENDENCIES += host-gdk-pixbuf
 
-PLYMOUTH_CONF_OPTS += --disable-documentation
-PLYMOUTH_CONF_OPTS += --disable-gtk
-PLYMOUTH_CONF_OPTS += --disable-gtk+3
-PLYMOUTH_CONF_OPTS += --disable-ncurses
-PLYMOUTH_CONF_OPTS += --disable-systemd
-PLYMOUTH_CONF_OPTS += --disable-systemd-integration
-PLYMOUTH_CONF_OPTS += --disable-upstart-monitoring
-PLYMOUTH_CONF_OPTS += --enable-drm
-PLYMOUTH_CONF_OPTS += --with-logo=/usr/lib/plymouth/bcd-logo.png
-PLYMOUTH_CONF_OPTS += --with-udev
-PLYMOUTH_CONF_OPTS += --without-system-root-install
+PLYMOUTH_CONF_OPTS += -Dlogo=/usr/lib/plymouth/bcd-logo.png
+PLYMOUTH_CONF_OPTS += -Dupstart-monitoring=false
+PLYMOUTH_CONF_OPTS += -Dsystemd-integration=false
+PLYMOUTH_CONF_OPTS += -Dtracing=false
+PLYMOUTH_CONF_OPTS += -Dudev=enabled
+PLYMOUTH_CONF_OPTS += -Dpango=disabled
+PLYMOUNT_CONF_OPTS += -Dfreetype=enabled
+PLYMOUNT_CONF_OPTS += -Dgtk=disabled
+PLYMOUNT_CONF_OPTS += -Ddrm=true
+PLYMOUNT_CONF_OPTS += -Ddocs=false
 
 PLYMOUTH_INSTALL_STAGING = YES
 PLYMOUTH_INSTALL_TARGET = YES
