@@ -15,19 +15,19 @@ PLYMOUTH_SITE = https://gitlab.freedesktop.org/plymouth/plymouth
 PLYMOUTH_SITE_METHOD = git
 PLYMOUTH_LICENSE = GPL-2.0-or-later
 PLYMOUTH_LICENSE_FILES = COPYING
-PLYMOUTH_AUTORECONF = YES
 PLYMOUTH_DEPENDENCIES = host-pkgconf
 PLYMOUTH_DEPENDENCIES += host-gdk-pixbuf
-PLYMOUTH_DEPENDENCIES += host-m4
 
-PLYMOUTH_CONF_OPTS += --enable-drm
 PLYMOUTH_CONF_OPTS += --disable-documentation
-PLYMOUTH_CONF_OPTS += --disable-gtk,gtk+3
+PLYMOUTH_CONF_OPTS += --disable-gtk
+PLYMOUTH_CONF_OPTS += --disable-gtk+3
+PLYMOUTH_CONF_OPTS += --disable-ncurses
+PLYMOUTH_CONF_OPTS += --disable-systemd
+PLYMOUTH_CONF_OPTS += --disable-systemd-integration
+PLYMOUTH_CONF_OPTS += --disable-upstart-monitoring
+PLYMOUTH_CONF_OPTS += --enable-drm
 PLYMOUTH_CONF_OPTS += --with-logo=/usr/lib/plymouth/bcd-logo.png
-PLYMOUTH_CONF_OPTS += --disable-systemd-integration,systemd
 PLYMOUTH_CONF_OPTS += --with-udev
-PLYMOUTH_CONF_OPTS += --without-udev,udev
-PLYMOUTH_CONF_OPTS += --disable-upstart-monitoring,ncurses dbus
 PLYMOUTH_CONF_OPTS += --without-system-root-install
 
 PLYMOUTH_INSTALL_STAGING = YES
@@ -38,5 +38,5 @@ define PLYMOUTH_INSTALL_IMAGE
 		$(TARGET_DIR)/usr/lib/plymouth/bcd-logo.png
 endef
 
-$(eval $(autotools-package))
-$(eval $(host-autotools-package))
+$(eval $(meson-package))
+
