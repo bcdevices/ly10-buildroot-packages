@@ -10,32 +10,37 @@
 #   (even before the root filesystem is mounted!) that provides a
 #   graphical boot animation while the boot process happens in the background.
 
-PLYMOUTH_VERSION = 22.02.122
+PLYMOUTH_VERSION = e8e193716f25874c9e91b52673f2c102f51ca497
 PLYMOUTH_SITE = https://gitlab.freedesktop.org/plymouth/plymouth
 PLYMOUTH_SITE_METHOD = git
 PLYMOUTH_LICENSE = GPL-2.0-or-later
 PLYMOUTH_LICENSE_FILES = COPYING
+PLYMOUTH_AUTORECONF = YES
 PLYMOUTH_DEPENDENCIES = host-pkgconf
 PLYMOUTH_DEPENDENCIES += host-gdk-pixbuf
+PLYMOUTH_DEPENDENCIES += libpng
+PLYMOUTH_DEPENDENCIES += libxkbcommon
+PLYMOUTH_DEPENDENCIES += freetype
 
+PLYMOUTH_CONF_OPTS += -Ddocs=false
+PLYMOUTH_CONF_OPTS += -Ddrm=true
+PLYMOUTH_CONF_OPTS += -Dfreetype=enabled
+PLYMOUTH_CONF_OPTS += -Dgtk=disabled
 PLYMOUTH_CONF_OPTS += -Dlogo=/usr/lib/plymouth/bcd-logo.png
-PLYMOUTH_CONF_OPTS += -Dupstart-monitoring=false
+PLYMOUTH_CONF_OPTS += -Dpango=disabled
 PLYMOUTH_CONF_OPTS += -Dsystemd-integration=false
 PLYMOUTH_CONF_OPTS += -Dtracing=false
 PLYMOUTH_CONF_OPTS += -Dudev=enabled
-PLYMOUTH_CONF_OPTS += -Dpango=disabled
-PLYMOUNT_CONF_OPTS += -Dfreetype=enabled
-PLYMOUNT_CONF_OPTS += -Dgtk=disabled
-PLYMOUNT_CONF_OPTS += -Ddrm=true
-PLYMOUNT_CONF_OPTS += -Ddocs=false
+PLYMOUTH_CONF_OPTS += -Dupstart-monitoring=false
 
 PLYMOUTH_INSTALL_STAGING = YES
 PLYMOUTH_INSTALL_TARGET = YES
 
-define PLYMOUTH_INSTALL_IMAGE
+define PLYMOUTH_COPY_LOGO
 	$(INSTALL) -D -m 644 package/plymouth/bcd-logo.png \
 		$(TARGET_DIR)/usr/lib/plymouth/bcd-logo.png
 endef
 
-$(eval $(meson-package))
+PLYMOUTH_POST_INSTALL_TARGET_HOOKS += PLYMOUTH_COPY_LOGO
 
+$(eval $(meson-package))
