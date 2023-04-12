@@ -1,0 +1,7 @@
+config BR2_PACKAGE_PLYMOUTH
+  bool "plymouth"
+  help
+    Plymouth is a project from Fedora providing a flicker-free graphical boot process.
+  select BR2_PACKAGE_FREETYPE
+  select BR2_PACKAGE_LIBPNG
+  select BR2_PACKAGE_XKEYBOARD_CONFIG

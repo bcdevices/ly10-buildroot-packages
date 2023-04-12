@@ -1,0 +1,11 @@
+diff -u -r -N plymouth.orig/meson.build plymouth/meson.build
+--- plymouth.orig/meson.build	2023-04-12 12:47:58.613932789 +0200
++++ plymouth/meson.build	2023-04-12 12:49:29.409935056 +0200
+@@ -1,6 +1,6 @@
+ project('plymouth', 'c',
+   meson_version: '>= 0.61',
+-  version: run_command(['scripts/generate-version.sh'], check: true).stdout().strip(),
++  version: '23.12.170',
+ )
+ 
+ # Modules
