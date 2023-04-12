@@ -5,7 +5,7 @@ diff -u -r -N plymouth.orig/meson.build plymouth/meson.build
  project('plymouth', 'c',
    meson_version: '>= 0.61',
 -  version: run_command(['scripts/generate-version.sh'], check: true).stdout().strip(),
-+  version: "23.12.170"
++  version: '23.12.170',
  )
  
  # Modules
