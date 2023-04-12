@@ -15,7 +15,6 @@ PLYMOUTH_SITE = https://gitlab.freedesktop.org/plymouth/plymouth
 PLYMOUTH_SITE_METHOD = git
 PLYMOUTH_LICENSE = GPL-2.0-or-later
 PLYMOUTH_LICENSE_FILES = COPYING
-PLYMOUTH_AUTORECONF = YES
 PLYMOUTH_DEPENDENCIES = host-pkgconf
 PLYMOUTH_DEPENDENCIES += host-gdk-pixbuf
 PLYMOUTH_DEPENDENCIES += libpng
@@ -37,10 +36,17 @@ PLYMOUTH_INSTALL_STAGING = YES
 PLYMOUTH_INSTALL_TARGET = YES
 
 define PLYMOUTH_COPY_LOGO
-	$(INSTALL) -D -m 644 package/plymouth/bcd-logo.png \
-		$(TARGET_DIR)/usr/lib/plymouth/bcd-logo.png
+	$(INSTALL) -m 0644 -D $(PLYMOUTH_PKGDIR)/bcd-logo.png \
+		$(STAGING_DIR)/usr/lib/plymouth/bcd-logo.png
 endef
 
-PLYMOUTH_POST_INSTALL_TARGET_HOOKS += PLYMOUTH_COPY_LOGO
+PLYMOUTH_PRE_INSTALL_STAGING_HOOKS += PLYMOUTH_COPY_LOGO
+
+define PLYMOUTH_INSTALL_EXTRA_FILES
+	$(INSTALL) -m 0644 -D $(PLYMOUTH_PKGDIR)/plymouthd.conf \
+		$(TARGET_DIR)/etc/plymouthd.conf
+endef
+
+PLYMOUTH_POST_INSTALL_TARGET_HOOKS += PLYMOUTH_INSTALL_EXTRA_FILES
 
 $(eval $(meson-package))
