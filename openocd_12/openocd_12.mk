@@ -45,7 +45,7 @@ OPENOCD_12_CONF_OPTS = \
 	--disable-shared \
 	--enable-dummy \
 	--disable-werror \
-	--prefix=/usr/local/openocd-0.11.0
+	--prefix=/usr/local/openocd-0.12.0
 
 # Rely on the Config.in options of each individual adapter selecting
 # the dependencies they need.
