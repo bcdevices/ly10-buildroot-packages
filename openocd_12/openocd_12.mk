@@ -143,5 +143,12 @@ endef
 OPENOCD_12_POST_BUILD_HOOKS += OPENOCD_12_FIX_VERSION_TEXI
 HOST_OPENOCD_12_POST_BUILD_HOOKS += OPENOCD_12_FIX_VERSION_TEXI
 
+define OPENOCD_12_TARGET_RENAME
+	mv $(TARGET_DIR)/usr/bin/openocd $(TARGET_DIR)/usr/bin/openocd_0.12.0
+endef
+
+OPENOCD_12_POST_INSTALL_TARGET_HOOKS += OPENOCD_12_TARGET_RENAME
+
+
 $(eval $(autotools-package))
 $(eval $(host-autotools-package))
