@@ -17,7 +17,6 @@ WESTON_12_DEPENDENCIES = host-pkgconf wayland wayland-protocols \
 
 WESTON_12_CONF_OPTS = \
 	-Dbackend-headless=false \
-	-Dcolor-management-colord=false \
 	-Ddoc=false \
 	-Dremoting=false \
 	-Dtools=calibrator,debug,info,terminal,touch-calibrator
@@ -30,10 +29,10 @@ WESTON_12_CONF_OPTS += -Dsimple-clients=
 endif
 
 ifeq ($(BR2_PACKAGE_DBUS)$(BR2_PACKAGE_SYSTEMD),yy)
-WESTON_12_CONF_OPTS += -Dlauncher-logind=true
+WESTON_12_CONF_OPTS += -Ddeprecated-launcher-logind=true
 WESTON_12_DEPENDENCIES += dbus systemd
 else
-WESTON_12_CONF_OPTS += -Dlauncher-logind=false
+WESTON_12_CONF_OPTS += -Ddeprecated-launcher-logind=false
 endif
 
 ifeq ($(BR2_PACKAGE_SEATD),y)
@@ -65,10 +64,10 @@ endef
 define WESTON_12_USERS
 	- - weston-launch -1 - - - - Weston launcher group
 endef
-WESTON_12_CONF_OPTS += -Ddeprecated-weston-launch=true
+# WESTON_12_CONF_OPTS += -Ddeprecated-weston-launch=true
 WESTON_12_DEPENDENCIES += linux-pam
 else
-WESTON_12_CONF_OPTS += -Ddeprecated-weston-launch=false
+# WESTON_12_CONF_OPTS += -Ddeprecated-weston-launch=false
 endif
 
 ifeq ($(BR2_PACKAGE_HAS_LIBEGL_WAYLAND)$(BR2_PACKAGE_HAS_LIBGLES),yy)
