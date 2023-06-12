@@ -18,6 +18,15 @@ WESTON_12_DEPENDENCIES = host-pkgconf wayland wayland-protocols \
 WESTON_12_CONF_OPTS = \
 	-Dbackend-headless=false \
 	-Ddoc=false \
+	-Dbackend-vnc=false \
+	-Dbackend-pipewire=false \
+	-Dbackend-rdp=false \
+	-Dscreenshare=false \
+  -Dbackend-x11=false \
+	-Dxwayland=false \
+	-Dsystemd=false \
+	-Dpipewire=false \
+	-Dwcap-decode=false \
 	-Dremoting=false \
 	-Dtools=calibrator,debug,info,terminal,touch-calibrator
 
