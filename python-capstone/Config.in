@@ -3,4 +3,4 @@ config BR2_PACKAGE_PYTHON_CAPSTONE
 	help
 	  Capstone disassembly engine.
 
-	  http://www.capstone-engine.org
+	  https://www.capstone-engine.org
