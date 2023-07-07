@@ -1,5 +1,0 @@
-# md5, sha256 from https://pypi.org/pypi/psutil/json
-md5  864717cda1e2577b65da1f30cd37b537  psutil-5.9.5.tar.gz
-sha256  5410638e4df39c54d957fc51ce03048acd8e6d60abc0f5107af51e5fb566eb3c  psutil-5.9.5.tar.gz
-# Locally computed sha256 checksums
-sha256  b89c063b3786e28e0c0a38f1931db61fed35e69dd2a2966fbecffee0f46c8d10  LICENSE
