@@ -1,0 +1,12 @@
+diff --git a/pyproject.toml b/pyproject.toml
+index 7375713..dc334dd 100644
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -3,7 +3,6 @@
+ # https://pip.pypa.io/en/stable/reference/pip/#pep-517-and-518-support
+ requires = [
+     "setuptools>=51",
+-    "wheel",
+     "setuptools_scm[toml]>=6.0,<7.0; python_version < \"3.7\"",
+     "setuptools_scm[toml]>=7.0; python_version >= \"3.7\"",
+ ]
