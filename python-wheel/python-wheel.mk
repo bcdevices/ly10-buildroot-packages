@@ -11,4 +11,5 @@ PYTHON_WHEEL_SETUP_TYPE = distutils
 PYTHON_WHEEL_LICENSE = MIT
 PYTHON_WHEEL_LICENSE_FILES = LICENSE.txt
 
+$(eval $(python-package))
 $(eval $(host-python-package))
