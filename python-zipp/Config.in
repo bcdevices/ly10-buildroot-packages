@@ -1,0 +1,2 @@
+config BR2_PACKAGE_PYTHON_ZIPP
+	bool "python-zipp"
