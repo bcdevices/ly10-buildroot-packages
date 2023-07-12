@@ -1,0 +1,4 @@
+# Locally computed sha256 checksums
+md5  238b7c9f028d8fda1cf1feb08fb4ffad python-libusb-package-v1.0.26.2-br1.tar.gz
+sha256  f1ec5de721c6c6ad97e3460eab83a958a3a6a9f65248c77ee59933864bc131aa python-libusb-package-v1.0.26.2-br1.tar.gz
+sha256  1aaa40c02c54e283ea224eee097864ddb56c521d076d37f8f8baf6479b568ea8  LICENSE

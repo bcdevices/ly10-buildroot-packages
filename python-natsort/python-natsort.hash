@@ -1,0 +1,5 @@
+# md5, sha256 from https://pypi.org/pypi/natsort/json
+md5  e2e5314ac58cb7b48ca1680c02637893  natsort-8.4.0.tar.gz
+sha256  45312c4a0e5507593da193dedd04abb1469253b601ecaf63445ad80f0a1ea581  natsort-8.4.0.tar.gz
+# Locally computed sha256 checksums
+sha256  81d078140eae25b31f257407190f4cdcb80177979749726e2aae4f2cdd90f623  LICENSE

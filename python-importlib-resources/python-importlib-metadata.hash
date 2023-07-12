@@ -1,0 +1,5 @@
+# md5, sha256 from https://pypi.org/pypi/importlib-resources/json
+md5  81b4070989c8ae661532543049ca528d importlib_resources-6.0.0.tar.gz
+sha256  4cf94875a8368bd89531a756df9a9ebe1f150e0f885030b461237bc7f2d905f2 importlib_resources-6.0.0.tar.gz
+# Locally computed sha256 checksums
+sha256  86da0f01aeae46348a3c3d465195dc1ceccde79f79e87769a64b8da04b2a4741 LICENSE

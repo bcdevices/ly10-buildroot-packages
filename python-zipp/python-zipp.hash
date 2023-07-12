@@ -1,0 +1,5 @@
+# md5, sha256 from https://pypi.org/pypi/zipp/json
+md5 1369ce385c4ae2c99c44ba771d955f07 zipp-3.16.0.tar.gz
+sha256 1876cb065531855bbe83b6c489dcf69ecc28f1068d8e95959fe8bbc77774c941 zipp-3.16.0.tar.gz
+# Locally computed sha256 checksums
+sha256  86da0f01aeae46348a3c3d465195dc1ceccde79f79e87769a64b8da04b2a4741 LICENSE

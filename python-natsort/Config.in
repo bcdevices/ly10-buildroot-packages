@@ -1,0 +1,6 @@
+config BR2_PACKAGE_PYTHON_NATSORT
+	bool "python-natsort"
+	help
+	  Simple yet flexible natural sorting in Python.
+
+	  https://github.com/SethMMorton/natsort

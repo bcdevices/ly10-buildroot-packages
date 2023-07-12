@@ -1,4 +1,4 @@
-# sha256 from https://pypi.org/pypi/pyocd/0.32.3/json
-sha256  8ed3e6e397c51f558514dfa83d2fcaaebdf14d85f529e762d163a655a6641ef0  pyocd-0.32.3.tar.gz
+# sha256 from https://pypi.org/pypi/pyocd/0.35.1/json
+sha256  02e8084f4d3b26d4d7c7470bb470fd4edc6c2bf2ba781e3dd94da4f84571c975  pyocd-0.35.1.tar.gz
 # Locally computed sha256 checksums
 sha256  87edf00eb3adb7b328bbd302d87cf4eda0743f0bc36c60189d52c05e516a0402  LICENSE

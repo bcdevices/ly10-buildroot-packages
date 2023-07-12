@@ -1,19 +1,23 @@
 config BR2_PACKAGE_PYTHON_PYOCD
 	bool "python-pyocd"
-	select BR2_PACKAGE_PYTHON_CAPSTONE # runtime
-	select BR2_PACKAGE_PYTHON_CMSIS_PACK_MANAGER # runtime
-	select BR2_PACKAGE_PYTHON_COLORAMA # runtime
-	select BR2_PACKAGE_PYTHON_HIDAPI # runtime
-	select BR2_PACKAGE_PYTHON_INTELHEX # runtime
-	select BR2_PACKAGE_PYTHON_INTERVALTREE # runtime
-	select BR2_PACKAGE_PYTHON_NATURALSORT # runtime
-	select BR2_PACKAGE_PYTHON_PRETTYTABLE # runtime
-	select BR2_PACKAGE_PYTHON_PYELFTOOLS # runtime
-	select BR2_PACKAGE_PYTHON_PYLINK_SQUARE # runtime
-	select BR2_PACKAGE_PYTHON_PYOCD_PEMICRO # runtime
-	select BR2_PACKAGE_PYTHON_PYUSB # runtime
-	select BR2_PACKAGE_PYTHON_PYYAML # runtime
-	select BR2_PACKAGE_PYTHON_SIX # runtime
+  select BR2_PACKAGE_PYTHON_CAPSTONE # runtime
+  select BR2_PACKAGE_PYTHON_CMSIS_PACK_MANAGER # runtime
+  select BR2_PACKAGE_PYTHON_COLORAMA # runtime
+  select BR2_PACKAGE_PYTHON_HIDAPI # runtime
+  # select BR2_PACKAGE_PYTHON_IMPORTLIB_METADATA #runtime
+  # select BR2_PACKAGE_PYTHON_IMPORTLIB_RESOURCES #runtime
+  select BR2_PACKAGE_PYTHON_INTELHEX # runtime
+  select BR2_PACKAGE_PYTHON_INTERVALTREE # runtime
+  select BR2_PACKAGE_PYTHON_LARK # runtime
+  select BR2_PACKAGE_PYTHON_LIBUSB_PACKAGE # runtime
+  select BR2_PACKAGE_PYTHON_NATSORT # runtime
+  select BR2_PACKAGE_PYTHON_PRETTYTABLE # runtime
+  select BR2_PACKAGE_PYTHON_PYELFTOOLS # runtime
+  select BR2_PACKAGE_PYTHON_PYLINK_SQUARE # runtime
+  select BR2_PACKAGE_PYTHON_PYUSB # runtime
+  select BR2_PACKAGE_PYTHON_PYYAML # runtime
+  select BR2_PACKAGE_PYTHON_TYPING_EXTENSIONS # runtime
+  select BR2_PACKAGE_PYTHON_SIX # runtime
 	help
 	  Cortex-M debugger for Python.
 

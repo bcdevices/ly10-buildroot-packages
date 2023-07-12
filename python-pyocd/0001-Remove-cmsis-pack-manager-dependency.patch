@@ -1,0 +1,22 @@
+diff --git a/pyocd.egg-info/requires.txt b/pyocd.egg-info/requires.txt
+index 847fe2b..2035e8e 100644
+--- a/pyocd.egg-info/requires.txt
++++ b/pyocd.egg-info/requires.txt
+@@ -1,5 +1,4 @@
+ capstone<5.0,>=4.0
+-cmsis-pack-manager<1.0,>=0.5.2
+ colorama<1.0
+ importlib_metadata>=3.6
+ importlib_resources
+diff --git a/setup.cfg b/setup.cfg
+index 8be3b15..4615a23 100644
+--- a/setup.cfg
++++ b/setup.cfg
+@@ -47,7 +47,6 @@ packages = find:
+ python_requires = >=3.7.0
+ install_requires = 
+ 	capstone>=4.0,<5.0
+-	cmsis-pack-manager>=0.5.2,<1.0
+ 	colorama<1.0
+ 	hidapi>=0.10.1,<1.0; platform_system != "Linux"
+ 	importlib_metadata>=3.6

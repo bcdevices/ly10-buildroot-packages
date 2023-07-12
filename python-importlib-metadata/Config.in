@@ -1,0 +1,3 @@
+config BR2_PACKAGE_PYTHON_IMPORTLIB_METADATA
+	bool "python-importlib-metadata"
+  select BR2_PACKAGE_PYTHON_ZIPP # runtime

@@ -4,9 +4,9 @@
 #
 ################################################################################
 
-PYTHON_CAPSTONE_VERSION = 4.0.2
+PYTHON_CAPSTONE_VERSION = 5.0.0.post1
 PYTHON_CAPSTONE_SOURCE = capstone-$(PYTHON_CAPSTONE_VERSION).tar.gz
-PYTHON_CAPSTONE_SITE = https://files.pythonhosted.org/packages/f2/ae/21dbb3ccc30d5cc9e8cdd8febfbf5d16d93b8c10e595280d2aa4631a0d1f
+PYTHON_CAPSTONE_SITE = https://files.pythonhosted.org/packages/de/04/4c2ae5ef70dadd773b39d39d30f1cab54d4a27aa0af69ac1414e2338434e
 PYTHON_CAPSTONE_SETUP_TYPE = setuptools
 PYTHON_CAPSTONE_LICENSE = FIXME: license id couldn't be detected
 PYTHON_CAPSTONE_LICENSE_FILES = LICENSE.TXT src/LICENSE.TXT

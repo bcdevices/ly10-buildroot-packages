@@ -1,6 +1,0 @@
-config BR2_PACKAGE_PYTHON_NATURALSORT
-	bool "python-naturalsort"
-	help
-	  Simple natural order sorting API for Python.
-
-	  https://github.com/xolox/python-naturalsort
