@@ -1,0 +1,13 @@
+diff --git a/ykcs11/ykcs11.c b/ykcs11/ykcs11.c
+index 06a3a1e..d9834d5 100644
+--- a/ykcs11/ykcs11.c
++++ b/ykcs11/ykcs11.c
+@@ -2903,7 +2903,7 @@ CK_DEFINE_FUNCTION(CK_RV, C_Sign)(
+     *pulSignatureLen = session->op_info.out_len;
+     DBG("The signature requires %lu bytes", *pulSignatureLen);
+     DOUT;
+-    return CKR_OK;
++    return CKR_BUFFER_TOO_SMALL;
+   }
+ 
+   if (*pulSignatureLen < session->op_info.out_len) {
