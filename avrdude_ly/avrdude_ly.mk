@@ -4,7 +4,7 @@
 #
 ################################################################################
 
-AVRDUDE_LY_VERSION = cb9e7e49e6cb10f8ce57617546f74fa112e82afb # v7.2
+AVRDUDE_LY_VERSION = v7.2
 AVRDUDE_LY_SITE = git://github.com/avrdudes/avrdude.git
 AVRDUDE_LY_LICENSE = GPL-2.0+
 AVRDUDE_LY_LICENSE_FILES = COPYING
