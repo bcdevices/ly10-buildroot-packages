@@ -1,0 +1,12 @@
+diff --git a/src/Makefile b/src/Makefile
+index ad10d75..4df4f99 100644
+--- a/src/Makefile
++++ b/src/Makefile
+@@ -240,7 +240,6 @@ ifeq "$(SYSTEM)" "Linux"
+   SOURCE4+=ftdi-bb.c
+   SOURCE5+=ftdi-bb.c
+   CLIB+=-lftdi1
+-  CFLAGS+=-I/usr/include/libftdi1
+  endif
+  endif
+  endif

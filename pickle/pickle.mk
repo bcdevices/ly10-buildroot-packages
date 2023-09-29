@@ -25,5 +25,4 @@ define PICKLE_INSTALL_TARGET_CMDS
 	  BINDIR="$(TARGET_DIR)/usr/bin/" $(MAKE) -C $(@D) install
 endef
 
-
 $(eval $(generic-package))
