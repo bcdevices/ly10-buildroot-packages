@@ -1,2 +1,3 @@
 config BR2_PACKAGE_PYTHON_LIBUSB_PACKAGE
 	bool "python-libusb-package"
+  select BR2_PACKAGE_PYTHON_TOMLI
