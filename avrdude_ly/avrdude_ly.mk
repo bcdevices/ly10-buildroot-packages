@@ -4,8 +4,8 @@
 #
 ################################################################################
 
-AVRDUDE_LY_VERSION = 9cb8d9b
-AVRDUDE_LY_SITE = git://github.com/bcdevices/avrdude
+AVRDUDE_LY_VERSION = v7.2
+AVRDUDE_LY_SITE = git://github.com/avrdudes/avrdude.git
 AVRDUDE_LY_LICENSE = GPL-2.0+
 AVRDUDE_LY_LICENSE_FILES = COPYING
 # Sources coming from git, without generated configure and Makefile.in
