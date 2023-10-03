@@ -21,6 +21,8 @@ else ifeq ($(BR2_PACKAGE_LIBFTDI),y)
 AVRDUDE_LY_DEPENDENCIES += libftdi
 endif
 
+AVRDUDE_LY_SUBDIR = src
+
 # Autoreconf requires an m4 directory to exist
 define AVRDUDE_LY_PATCH_M4
 	mkdir -p $(@D)/m4
