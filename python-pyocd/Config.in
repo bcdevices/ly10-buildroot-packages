@@ -18,6 +18,7 @@ config BR2_PACKAGE_PYTHON_PYOCD
   select BR2_PACKAGE_PYTHON_PYYAML # runtime
   select BR2_PACKAGE_PYTHON_TYPING_EXTENSIONS # runtime
   select BR2_PACKAGE_PYTHON_SIX # runtime
+  select BR2_PACKAGE_PYTHON_PYUSB # runtime
 	help
 	  Cortex-M debugger for Python.
 
