@@ -1,0 +1,13 @@
+diff --git a/src/libusb_package/__init__.py b/src/libusb_package/__init__.py
+index 67e3e46..020ce3f 100644
+--- a/src/libusb_package/__init__.py
++++ b/src/libusb_package/__init__.py
+@@ -94,7 +94,7 @@ def find_library(candidate: str) -> Optional[str]:
+ def get_libusb1_backend() -> Optional[IBackend]:
+     """@brief Return a usb backend for pyusb."""
+     import usb.backend.libusb1
+-    return usb.backend.libusb1.get_backend(find_library=find_library)
++    return usb.backend.libusb1.get_backend(find_library=lambda x: "/usr/lib/libusb-1.0.so")
+ 
+ 
+ # TODO refine the type signature of find()
