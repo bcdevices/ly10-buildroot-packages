@@ -1,0 +1,19 @@
+diff --git forkSrcPrefix/tcl/target/ti_cc1352p7.cfg forkDstPrefix/tcl/target/ti_cc1352p7.cfg
+new file mode 100644
+index 0000000000000000000000000000000000000000..829ff77a50f690c7f676148c1558c845552d751f
+--- /dev/null
++++ forkDstPrefix/tcl/target/ti_cc1352p7.cfg
+@@ -0,0 +1,13 @@
++# SPDX-License-Identifier: GPL-2.0-or-later
++
++#
++# Texas Instruments CC1352P7 - ARM Cortex-M4
++#
++# http://www.ti.com
++#
++
++set CHIPNAME cc1352p7
++set JRC_TAPID 0x0BB7702F
++set WORKAREASIZE 0x7000
++
++source [find target/ti_cc26x0.cfg]
