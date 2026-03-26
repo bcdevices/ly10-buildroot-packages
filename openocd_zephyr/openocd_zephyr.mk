@@ -4,8 +4,12 @@
 #
 ################################################################################
 
+
+# sdk-ng v0.17.4
+OPENOCD_ZEPHYR_VERSION = eb89d626c64d8674e2a8b767915e0c6fd51ac814
+
 # sdk-ng v1.16.1
-OPENOCD_ZEPHYR_VERSION = e2b6f5655e2ccd354fb8c7d0f53b93f4cb42a4f4
+#OPENOCD_ZEPHYR_VERSION = e2b6f5655e2ccd354fb8c7d0f53b93f4cb42a4f4
 
 # sdk-ng v1.15.1
 #OPENOCD_ZEPHYR_VERSION = c5c47943dbd036079d96fe49ea9092f78abec427
